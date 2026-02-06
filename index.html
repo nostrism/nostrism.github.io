@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indie Developer Portfolio | Creative Projects Showcase</title>
+    <meta name="description"
+        content="Explore a curated collection of indie development projects featuring innovative utilities, games, and creative applications.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon_io/site.webmanifest">
+    <link rel="shortcut icon" href="images/favicon_io/favicon.ico">
+</head>
+
+<body>
+    <!-- Global Header -->
+    <header class="global-header">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Nostrism Apps Logo" class="logo">
+            <div class="dev-info">
+                <span class="app-brand">Nostrism Apps</span>
+                <span class="dev-name">Sergey Krivoy</span>
+            </div>
+        </div>
+        <a href="https://ko-fi.com/yourusername" target="_blank" class="kofi-button" aria-label="Support on Ko-fi">
+            <svg class="kofi-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"
+                    fill="currentColor" />
+            </svg>
+            <span class="kofi-text">Support on Ko-fi</span>
+        </a>
+    </header>
+
+    <!-- Main Container -->
+    <div class="split-container">
+        <!-- Left Panel (Context) -->
+        <div class="left-panel" id="leftPanel">
+            <div class="project-info">
+                <h1 class="project-title" id="projectTitle">Loading...</h1>
+                <p class="project-descriptor" id="projectDescriptor">...</p>
+                <div class="tech-stack" id="techStack"></div>
+                <a href="#" class="project-button" id="projectButton" target="_blank">
+                    <span>Open Project</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+            <div class="project-counter" id="projectCounter">01 / 04</div>
+        </div>
+
+        <!-- Right Panel (Content) -->
+        <div class="right-panel" id="rightPanel">
+            <!-- Project 1: Utility App -->
+            <section class="project-section" data-project="0" data-color="#4447D4" data-title="LinkBrand"
+                data-descriptor="Create professional LinkedIn cover photos in seconds for free."
+                data-stack="Tool, SaaS, Branding" data-link="https://nostrism.github.io/linkbrand/">
+                <div class="screenshot-container">
+                    <img src="images/LinkBrand/01.jpg" alt="LinkBrand Interface" class="screenshot">
+                </div>
+                <div class="screenshot-container">
+                    <img src="images/LinkBrand/02.jpg" alt="LinkBrand Customization" class="screenshot">
+                </div>
+                <div class="screenshot-container">
+                    <img src="images/LinkBrand/03.jpg" alt="LinkBrand Preview" class="screenshot">
+                </div>
+            </section>
+
+            <!-- Project 2: Game -->
+            <section class="project-section" data-project="1" data-color="#55A06F" data-title="Dilemm"
+                data-descriptor="Quick randomizer for daily choices. Make decisions easily with Dilemm!"
+                data-stack="Mobile App, Randomizer, Utility"
+                data-link="https://play.google.com/store/apps/details?id=com.nostrismapps.dilemm">
+                <div class="screenshot-container">
+                    <img src="images/Dilemm/01.jpg" alt="Dilemm Gameplay" class="screenshot">
+                </div>
+                <div class="screenshot-container">
+                    <img src="images/Dilemm/02.jpg" alt="Dilemm Screen 2" class="screenshot">
+                </div>
+            </section>
+
+            <!-- Project 3: Creative Tool -->
+            <section class="project-section" data-project="2" data-color="#DF4D49" data-title="UXNAMES"
+                data-descriptor="A satirical job title generator that mocks the obsession with complex titles in the design industry."
+                data-stack="2017, Design Culture, Joke" data-link="https://nostrism.github.io/uxnames/">
+                <div class="screenshot-container">
+                    <img src="images/UXNAME/01.jpg" alt="UXNAMES Interface" class="screenshot">
+                </div>
+                <div class="screenshot-container">
+                    <img src="images/UXNAME/02.jpg" alt="UXNAMES Generation" class="screenshot">
+                </div>
+                <div class="screenshot-container">
+                    <img src="images/UXNAME/03.jpg" alt="UXNAMES Result" class="screenshot">
+                </div>
+            </section>
+
+            <!-- Project 4: Web App -->
+            <section class="project-section" data-project="3" data-color="#2D3436" data-title="ChronoFlow"
+                data-descriptor="Time visualized as real-time progress bars for a more tangible sense of deadlines and flow."
+                data-stack="Time UX, Visualization, Productivity" data-link="https://nostrism.github.io/ChronoFlow/">
+                <div class="screenshot-container">
+                    <img src="images/Chronoflow/01.png" alt="ChronoFlow Workspace" class="screenshot">
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

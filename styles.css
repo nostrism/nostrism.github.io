@@ -1,0 +1,484 @@
+/* ===================================
+   Design System & CSS Variables
+   =================================== */
+:root {
+    /* Colors */
+    --color-bg: #0A0A0A;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: rgba(255, 255, 255, 0.7);
+    --color-accent: #4F46E5;
+
+    /* Typography */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Z-index */
+    --z-header: 1000;
+    --z-left-panel: 100;
+    --z-right-panel: 50;
+}
+
+/* ===================================
+   Reset & Base Styles
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===================================
+   Global Header
+   =================================== */
+.global-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-header);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-xl);
+    pointer-events: none;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    pointer-events: auto;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    object-fit: cover;
+    transition: transform var(--transition-fast);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.dev-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.2;
+    mix-blend-mode: difference;
+}
+
+.app-brand {
+    font-weight: 800;
+    font-size: 1.125rem;
+    letter-spacing: -0.02em;
+}
+
+.dev-name {
+    font-weight: 400;
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+/* Ko-fi Button */
+.kofi-button {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 0.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all var(--transition-medium);
+    pointer-events: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.kofi-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: transform var(--transition-medium);
+}
+
+.kofi-text {
+    max-width: 0;
+    opacity: 0;
+    white-space: nowrap;
+    transition: all var(--transition-medium);
+}
+
+.kofi-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    padding-right: 1.5rem;
+}
+
+.kofi-button:hover .kofi-icon {
+    transform: rotate(-10deg);
+}
+
+.kofi-button:hover .kofi-text {
+    max-width: 150px;
+    opacity: 1;
+    margin-left: var(--spacing-xs);
+}
+
+/* ===================================
+   Split Container
+   =================================== */
+.split-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===================================
+   Left Panel (Context)
+   =================================== */
+.left-panel {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 100vh;
+    background-color: var(--color-accent);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--spacing-2xl);
+    padding-top: calc(var(--spacing-2xl) + 80px);
+    transition: background-color var(--transition-slow);
+    z-index: var(--z-left-panel);
+}
+
+.project-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-lg);
+}
+
+.project-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp var(--transition-slow) forwards;
+}
+
+.project-descriptor {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-weight: 500;
+    line-height: 1.4;
+    opacity: 0.9;
+    max-width: 500px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp var(--transition-slow) 0.1s forwards;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp var(--transition-slow) 0.2s forwards;
+}
+
+.tech-tag {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all var(--transition-fast);
+}
+
+.tech-tag:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.project-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 1rem 2rem;
+    background: var(--color-text-primary);
+    color: var(--color-bg);
+    font-weight: 700;
+    font-size: 1.125rem;
+    border-radius: 12px;
+    transition: all var(--transition-medium);
+    width: fit-content;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp var(--transition-slow) 0.3s forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.project-button:hover::before {
+    left: 100%;
+}
+
+.project-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.project-button svg {
+    transition: transform var(--transition-fast);
+}
+
+.project-button:hover svg {
+    transform: translate(4px, -4px);
+}
+
+.project-counter {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    opacity: 0.6;
+    letter-spacing: 0.1em;
+}
+
+/* ===================================
+   Right Panel (Content)
+   =================================== */
+.right-panel {
+    width: 50vw;
+    background-color: var(--color-bg);
+    z-index: var(--z-right-panel);
+}
+
+.project-section {
+    padding: var(--spacing-2xl);
+    padding-top: calc(var(--spacing-2xl) + 80px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.project-section:not(:last-child) {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.project-section:last-child {
+    padding-bottom: 40vh;
+    /* Extra space to prevent previous projects from showing when content is short */
+}
+
+.screenshot-container {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transition: transform var(--transition-medium);
+}
+
+.screenshot-container:hover {
+    transform: scale(1.02);
+}
+
+.screenshot {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===================================
+   Animations
+   =================================== */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================================
+   Mobile Responsive (Adaptive)
+   =================================== */
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+    }
+
+    .left-panel {
+        position: sticky;
+        top: 0;
+        width: 100vw;
+        height: auto;
+        min-height: 40vh;
+        padding: var(--spacing-lg);
+        padding-top: calc(var(--spacing-lg) + 70px);
+        z-index: var(--z-left-panel);
+    }
+
+    .right-panel {
+        width: 100vw;
+    }
+
+    .project-section {
+        padding: var(--spacing-lg);
+        padding-top: var(--spacing-md);
+    }
+
+    .project-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .project-descriptor {
+        font-size: 1rem;
+    }
+
+    .project-button {
+        font-size: 1rem;
+        padding: 0.875rem 1.5rem;
+    }
+
+    .project-counter {
+        font-size: 1.5rem;
+    }
+
+    /* Mobile Header */
+    .global-header {
+        padding: var(--spacing-sm) var(--spacing-md);
+        background: rgba(10, 10, 10, 0.8);
+        backdrop-filter: blur(20px);
+        transition: transform var(--transition-medium);
+    }
+
+    .global-header.hidden {
+        transform: translateY(-100%);
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .app-brand {
+        font-size: 0.9rem;
+    }
+
+    .dev-name {
+        font-size: 0.75rem;
+    }
+
+    .kofi-button {
+        padding: 0.625rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .kofi-text {
+        display: none;
+    }
+
+    .screenshot-container {
+        border-radius: 12px;
+    }
+}
+
+/* ===================================
+   Tablet Responsive
+   =================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .left-panel {
+        padding: var(--spacing-xl);
+        padding-top: calc(var(--spacing-xl) + 80px);
+    }
+
+    .project-section {
+        padding: var(--spacing-xl);
+        padding-top: calc(var(--spacing-xl) + 80px);
+    }
+
+    .project-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+    }
+}
+
+/* ===================================
+   Accessibility
+   =================================== */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus styles for keyboard navigation */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-text-primary);
+    outline-offset: 4px;
+}

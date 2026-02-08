@@ -69,6 +69,14 @@ function updateLeftPanel(section, index) {
         });
     }, 200);
 
+    // GA4 Tracking
+    if (typeof gtag === 'function') {
+        gtag('event', 'project_view', {
+            'project_title': title,
+            'project_index': index + 1
+        });
+    }
+
     // Note: Logo contrast is now handled via CSS mix-blend-mode where applicable
 }
 
@@ -184,6 +192,39 @@ document.addEventListener('DOMContentLoaded', () => {
             preloadImg.src = img.src;
         });
     });
+
+    // GA4 Interaction Tracking
+    if (typeof gtag === 'function') {
+        // Project Button Clicks
+        projectButton.addEventListener('click', function () {
+            gtag('event', 'project_open_click', {
+                'project_title': projectTitle.textContent,
+                'link_url': this.href
+            });
+        });
+
+        // LinkedIn Link
+        const linkedinLink = document.querySelector('.dev-name');
+        if (linkedinLink) {
+            linkedinLink.addEventListener('click', function () {
+                gtag('event', 'social_click', {
+                    'platform': 'linkedin',
+                    'link_url': this.href
+                });
+            });
+        }
+
+        // Ko-fi Support Button
+        const kofiButton = document.querySelector('.kofi-button');
+        if (kofiButton) {
+            kofiButton.addEventListener('click', function () {
+                gtag('event', 'support_click', {
+                    'platform': 'ko-fi',
+                    'link_url': this.href
+                });
+            });
+        }
+    }
 });
 
 // ===================================

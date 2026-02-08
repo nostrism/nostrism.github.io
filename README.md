@@ -11,4 +11,4 @@ Curated collection of indie development projects by **Sergey Krivoy**. Featuring
 ## How to View
 ### 🌐 Live Demo
 Visit the live portfolio at:  
-[**https://nostrism.github.io/nostrismapps/**](https://nostrism.github.io/nostrismapps/)
+[**https://nostrism.github.io/**](https://nostrism.github.io/)

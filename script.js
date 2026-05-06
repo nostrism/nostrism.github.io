@@ -3,7 +3,7 @@
 // ===================================
 
 let currentProjectIndex = 0;
-const totalProjects = 5;
+const totalProjects = 6;
 
 // Get all project sections
 const projectSections = document.querySelectorAll('.project-section');

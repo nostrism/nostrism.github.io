@@ -94,13 +94,22 @@
                 <h1 class="project-title" id="projectTitle">Loading...</h1>
                 <p class="project-descriptor" id="projectDescriptor">...</p>
                 <div class="tech-stack" id="techStack"></div>
-                <a href="#" class="project-button" id="projectButton" target="_blank" rel="noopener">
-                    <span>Open Project</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </a>
+                <div class="project-actions">
+                    <a href="#" class="project-button" id="projectButton" target="_blank" rel="noopener">
+                        <span>Open Project</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="#" class="project-button project-button--secondary" id="projectLandingButton" target="_blank" rel="noopener" hidden>
+                        <span>Visit Landing</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
             </div>
             <div class="project-counter" id="projectCounter">01 / 06</div>
 
@@ -112,7 +121,8 @@
             <section class="project-section" data-project="0" data-color="#4F6F52" data-title="Nothn App"
                 data-descriptor="Android detox app for the moments you can't put your phone down."
                 data-stack="Android App, Digital Detox, Generative Art"
-                data-link="https://play.google.com/store/apps/details?id=com.nostrism.nothn">
+                data-link="https://play.google.com/store/apps/details?id=com.nostrism.nothn"
+                data-landing="https://nothn-app.vercel.app/">
                 <div class="screenshot-container">
                     <img src="images/Nothn-app/01.jpeg" alt="Nothn App Icon" class="screenshot" width="1024"
                         height="1024">
@@ -160,7 +170,8 @@
             <section class="project-section" data-project="3" data-color="#55A06F" data-title="Dilemm"
                 data-descriptor="Quick randomizer for daily choices. Make decisions easily with Dilemm!"
                 data-stack="Mobile App, Randomizer, Utility"
-                data-link="https://play.google.com/store/apps/details?id=com.nostrismapps.dilemm">
+                data-link="https://play.google.com/store/apps/details?id=com.nostrismapps.dilemm"
+                data-landing="https://dilemm.vercel.app/">
                 <div class="screenshot-container">
                     <img src="images/Dilemm/01.jpg" alt="Dilemm Gameplay" class="screenshot" width="1200" height="800"
                         loading="lazy">
@@ -202,7 +213,7 @@
         </div>
     </main>
 
-    <script src="script.js?v=1.1"></script>
+    <script src="script.js?v=1.2"></script>
 </body>
 
 </html>

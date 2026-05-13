@@ -12,6 +12,7 @@ const projectTitle = document.getElementById('projectTitle');
 const projectDescriptor = document.getElementById('projectDescriptor');
 const techStack = document.getElementById('techStack');
 const projectButton = document.getElementById('projectButton');
+const projectLandingButton = document.getElementById('projectLandingButton');
 const projectCounter = document.getElementById('projectCounter');
 
 // Initialize with first project
@@ -29,6 +30,7 @@ function updateLeftPanel(section, index) {
     const descriptor = section.dataset.descriptor;
     const stack = section.dataset.stack.split(',');
     const link = section.dataset.link;
+    const landing = section.dataset.landing;
 
     // Update background color
     leftPanel.style.backgroundColor = color;
@@ -40,6 +42,9 @@ function updateLeftPanel(section, index) {
 
     // Trigger content fade out
     const elements = [projectTitle, projectDescriptor, techStack, projectButton];
+    if (landing) {
+        elements.push(projectLandingButton);
+    }
     elements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
@@ -50,6 +55,13 @@ function updateLeftPanel(section, index) {
         projectTitle.textContent = title;
         projectDescriptor.textContent = descriptor;
         projectButton.href = link;
+
+        if (landing) {
+            projectLandingButton.href = landing;
+            projectLandingButton.hidden = false;
+        } else {
+            projectLandingButton.hidden = true;
+        }
 
         // Update tech stack
         techStack.innerHTML = '';
@@ -198,6 +210,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Project Button Clicks
         projectButton.addEventListener('click', function () {
             gtag('event', 'project_open_click', {
+                'project_title': projectTitle.textContent,
+                'link_url': this.href
+            });
+        });
+
+        // Landing Button Clicks
+        projectLandingButton.addEventListener('click', function () {
+            gtag('event', 'project_landing_click', {
                 'project_title': projectTitle.textContent,
                 'link_url': this.href
             });

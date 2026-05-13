@@ -256,6 +256,13 @@ a {
     transform: translateY(-2px);
 }
 
+.project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
 .project-button {
     display: inline-flex;
     align-items: center;
@@ -273,6 +280,22 @@ a {
     animation: fadeInUp var(--transition-slow) 0.3s forwards;
     position: relative;
     overflow: hidden;
+}
+
+.project-button--secondary {
+    background: transparent;
+    color: var(--color-text-primary);
+    border: 2px solid currentColor;
+    padding: calc(1rem - 2px) calc(2rem - 2px);
+    animation-delay: 0.35s;
+}
+
+.project-button--secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.project-button[hidden] {
+    display: none;
 }
 
 .project-button::before {
@@ -404,6 +427,10 @@ a {
     .project-button {
         font-size: 1rem;
         padding: 0.875rem 1.5rem;
+    }
+
+    .project-button--secondary {
+        padding: calc(0.875rem - 2px) calc(1.5rem - 2px);
     }
 
     .project-counter {
